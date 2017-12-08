@@ -1,0 +1,25 @@
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: rgb(0, 242, 112);
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+a {
+    all: unset;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 10%;
+    text-align: center;
+}
+
+.main-menu p {
+    font-size: 5em;
+    letter-spacing: 8px;
+}
