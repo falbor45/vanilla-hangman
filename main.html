@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vanilla Hangman</title>
+    <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="content-wrapper main-screen">
+    <p>Category: </p>
+    <div id="guessArea"></div>
+    <p id="chanceCounter"></p>
+    <div id="letterWrapper" class="letter-wrapper"></div>
+    <div class="answer-wrapper">
+        <label for="answerInput">Provide your answer</label>
+        <input type="text" id="answerInput" class="answer-input"/>
+        <button type="button" id="submitAnswer">OK</button>
+    </div>
+    <div class="hint-wrapper">
+    <button type="button" id="showHint">Show hint</button>
+    </div>
+</div>
+<script type="text/javascript" src="assets/data.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
