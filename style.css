@@ -23,3 +23,60 @@ a {
     font-size: 5em;
     letter-spacing: 8px;
 }
+
+.main-screen p {
+    margin-top: 0;
+    font-size: 3em;
+}
+
+.letter-wrapper {
+    margin-bottom: 4%;
+}
+
+.letter-button {
+    height: 48px;
+    width: 48px;
+    background: rgb(0, 242, 112);
+    border-radius: 15%;
+    border-color: rgb(255, 255, 255);
+    margin: 4px;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border-style: solid;
+}
+
+.answer-wrapper label {
+    font-size: 2em;
+    letter-spacing: 2px;
+}
+
+.answer-wrapper button {
+    height: 2.4em;
+}
+
+.answer-input {
+    width: 25%;
+    height: 2em;
+    border: none;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+.hint-wrapper {
+    margin-top: 2%;
+}
+
+.hint-wrapper button {
+    height: 48px;
+    font-size: 1.2em;
+    background: rgb(0, 242, 112);
+    border-radius: 5%;
+    border-color: rgb(255, 255, 255);
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border-style: solid;
+}
