@@ -51,14 +51,12 @@ a {
     letter-spacing: 2px;
 }
 
-.answer-wrapper button {
-    height: 2.4em;
-}
 
 .answer-input {
     width: 25%;
-    height: 2em;
+    height: 48px;
     border: none;
+    text-align: center;
 }
 
 button:disabled {
@@ -69,7 +67,7 @@ button:disabled {
     margin-top: 2%;
 }
 
-.hint-wrapper button {
+button {
     height: 48px;
     font-size: 1.2em;
     background: rgb(0, 242, 112);
@@ -79,4 +77,5 @@ button:disabled {
     color: rgb(255, 255, 255);
     font-weight: bold;
     border-style: solid;
+    margin-left: 0.2%;
 }
