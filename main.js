@@ -1,3 +1,5 @@
+let startTime = new Date().getTime();
+let selMain = document.getElementsByClassName('main-screen')[0];
 let randomWord = () => {
   let result;
   let RNG = Math.floor(Math.random() * data.words.length);
@@ -33,6 +35,20 @@ let displayWord = () => {
   document.getElementById('guessArea').appendChild(el);
   document.getElementById('chanceCounter').innerHTML = `Chances left: ${chances}`;
   return null;
+}
+
+
+let msToTime = (duration) => {
+  let ms = parseInt((duration % 1000) / 100)
+  let s = parseInt((duration / 1000) % 60)
+  let m = parseInt((duration / (1000 * 60)) % 60)
+  let h = parseInt((duration / (1000 * 360)) % 24)
+
+  h = (h < 10) ? "0" + h : h;
+  m = (m < 10) ? "0" + m : m;
+  s = (s < 10) ? "0" + s : s;
+
+  return `${h} h ${m} min ${s} sec`
 }
 
 let guessLetter = (ltr) => {
@@ -82,12 +98,44 @@ let showHint = () => {
   return null;
 }
 
+let submitName = (value, time) => {
+  localStorage.setItem(value, time);
+  window.location.href = "./index.html"
+}
+
 let showVictoryScreen = () => {
-  document.body.innerHTML = "";
+  let endTime = new Date().getTime();
+  let completionTime = msToTime(endTime - startTime);
+  selMain.innerHTML = "";
+  let el = document.createElement('p');
+  let nameProv = document.createElement('input');
+  let confButton = document.createElement('button');
+  nameProv.type = "text"
+  nameProv.className = "answer-input"
+  nameProv.placeholder = "Provide your name"
+  nameProv.id = "nameInput"
+  confButton.innerHTML = "OK";
+  confButton.onclick = () => submitName(document.getElementById('nameInput').value, endTime - startTime);
+  selMain.appendChild(el).innerHTML = `You have won!<br>Your time was:<br>${completionTime}`;
+  selMain.appendChild(nameProv);
+  selMain.appendChild(confButton);
+}
+
+let createBackEl = () => {
+  let aTag = document.createElement('a');
+  aTag.href = "index.html"
+  let el = document.createElement('p');
+  el.innerHTML = "Back to menu"
+  aTag.appendChild(el);
+  return aTag;
 }
 
 let showDefeatScreen = () => {
-  document.body.innerHTML = "";
+  selMain.innerHTML = "";
+  let el = document.createElement('p')
+  el.innerHTML = `You lost!<br>The correct word was:<br>${chosenWord.title}`
+  selMain.appendChild(el)
+  selMain.appendChild(createBackEl())
 }
 
 {
