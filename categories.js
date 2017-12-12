@@ -1,5 +1,3 @@
-let categories = [];
-let counter = 1;
 let createBackEl = () => {
   let aTag = document.createElement('a');
   aTag.href = "index.html"
@@ -8,6 +6,8 @@ let createBackEl = () => {
   aTag.appendChild(el);
   return aTag;
 }
+let categories = [];
+let counter = 1;
 
 for (let i = 0; i < data.words.length; i++) {
   if (!categories.includes(data.words[i].category)) {

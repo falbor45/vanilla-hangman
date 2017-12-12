@@ -1,5 +1,12 @@
-let startTime = new Date().getTime();
-let selMain = document.getElementsByClassName('main-screen')[0];
+let createBackEl = () => {
+  let aTag = document.createElement('a');
+  aTag.href = "index.html"
+  let el = document.createElement('p');
+  el.innerHTML = "Back to menu"
+  aTag.appendChild(el);
+  return aTag;
+}
+
 let randomWord = () => {
   let result;
   let RNG = Math.floor(Math.random() * data.words.length);
@@ -7,13 +14,17 @@ let randomWord = () => {
   return result;
 }
 
-let chosenWord = randomWord()
-let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-let guessArea = null;
-let chances = data.tries;
-let lettersLeft = 0;
+let msToTime = (duration) => {
+  let s = parseInt((duration / 1000) % 60)
+  let m = parseInt((duration / (1000 * 60)) % 60)
+  let h = parseInt((duration / (1000 * 360)) % 24)
 
-document.querySelector(".content-wrapper p").innerHTML += `${chosenWord.category}`
+  h = (h < 10) ? "0" + h : h;
+  m = (m < 10) ? "0" + m : m;
+  s = (s < 10) ? "0" + s : s;
+
+  return `${h} h ${m} min ${s} sec`
+}
 
 let displayWord = () => {
   if (guessArea === null) {
@@ -35,20 +46,6 @@ let displayWord = () => {
   document.getElementById('guessArea').appendChild(el);
   document.getElementById('chanceCounter').innerHTML = `Chances left: ${chances}`;
   return null;
-}
-
-
-let msToTime = (duration) => {
-  let ms = parseInt((duration % 1000) / 100)
-  let s = parseInt((duration / 1000) % 60)
-  let m = parseInt((duration / (1000 * 60)) % 60)
-  let h = parseInt((duration / (1000 * 360)) % 24)
-
-  h = (h < 10) ? "0" + h : h;
-  m = (m < 10) ? "0" + m : m;
-  s = (s < 10) ? "0" + s : s;
-
-  return `${h} h ${m} min ${s} sec`
 }
 
 let guessLetter = (ltr) => {
@@ -128,15 +125,6 @@ let showVictoryScreen = () => {
   selMain.appendChild(confButton);
 }
 
-let createBackEl = () => {
-  let aTag = document.createElement('a');
-  aTag.href = "index.html"
-  let el = document.createElement('p');
-  el.innerHTML = "Back to menu"
-  aTag.appendChild(el);
-  return aTag;
-}
-
 let showDefeatScreen = () => {
   selMain.innerHTML = "";
   let el = document.createElement('p')
@@ -144,6 +132,16 @@ let showDefeatScreen = () => {
   selMain.appendChild(el)
   selMain.appendChild(createBackEl())
 }
+
+let startTime = new Date().getTime();
+let selMain = document.getElementsByClassName('main-screen')[0];
+let chosenWord = randomWord()
+let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+let guessArea = null;
+let chances = data.tries;
+let lettersLeft = 0;
+
+document.querySelector(".content-wrapper p").innerHTML += `${chosenWord.category}`
 
 {
   letters.map((e) => {
