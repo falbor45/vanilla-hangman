@@ -83,8 +83,10 @@ let guessLetter = (ltr) => {
 }
 
 let fullGuess = () => {
-  let val = document.getElementById('answerInput').value;
-  if (val === chosenWord.title) {
+  let val = document.getElementById('answerInput').value.toLowerCase();
+  let targetVal = chosenWord.title.toLowerCase();
+  console.log(targetVal);
+  if (val === targetVal) {
     showVictoryScreen();
   } else {
     showDefeatScreen();
