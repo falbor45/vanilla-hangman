@@ -8,7 +8,6 @@ let createBackEl = () => {
 }
 
 let msToTime = (duration) => {
-  let ms = parseInt((duration % 1000) / 100)
   let s = parseInt((duration / 1000) % 60)
   let m = parseInt((duration / (1000 * 60)) % 60)
   let h = parseInt((duration / (1000 * 360)) % 24)
