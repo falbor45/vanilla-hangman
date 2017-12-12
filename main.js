@@ -64,6 +64,7 @@ let guessLetter = (ltr) => {
       console.log(lettersLeft)
       if (lettersLeft === 0) {
         showVictoryScreen();
+        return null;
       }
     }
   }
@@ -99,7 +100,11 @@ let showHint = () => {
 }
 
 let submitName = (value, time) => {
-  localStorage.setItem(value, time);
+  let scoreboard = localStorage.getItem("scoreboard") !== null ?
+    JSON.parse(localStorage.getItem("scoreboard")) : [];
+  scoreboard.push({[value]: time})
+
+  localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
   window.location.href = "./index.html"
 }
 
