@@ -79,3 +79,7 @@ button {
     border-style: solid;
     margin-left: 0.2%;
 }
+
+.content-wrapper .scoreboard-position {
+    font-size: 3em;
+}
